@@ -87,6 +87,21 @@ class MissCannibals(Problem):
     #returns True if current state is equal to the goal state
     def goal_test(self, state):
         return state == self.goal
+
+    def fancy_print(self, state):
+        temp = ""
+        state_list = list(state)
+        print( temp.ljust(state_list[0], 'M') + " " + temp.ljust(state_list[1], 'C'), end="")
+        
+        if state_list[2]: print(" " + "(B)", end="")
+
+        print(" ~~~ ", end="")
+
+        print( temp.ljust(3 - state_list[0], 'M') + " " + temp.ljust(3 - state_list[1], 'C'), end="")
+
+        if not state_list[2]: print(" " + "(B)", end="")
+
+        print("")
         
 
 
@@ -99,10 +114,12 @@ if __name__ == '__main__':
     path = depth_first_graph_search(misscann).solution()
 
     print(path)
-    print(initial_state)
+    #print(initial_state)
+    misscann.fancy_print(initial_state)
     for item in path:
         new_state = misscann.result(new_state, item)
-        print(new_state)
+        #print(new_state)
+        misscann.fancy_print(new_state)
 
 
 
