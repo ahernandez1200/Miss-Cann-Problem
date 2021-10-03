@@ -1,3 +1,10 @@
+"""
+Anthony Hernandez 
+Kevin Nguyen CWID: 891028136
+Dylan Ngo
+"""
+
+
 from search import *
 
 class MissCannibals(Problem):
@@ -18,8 +25,6 @@ class MissCannibals(Problem):
 
     #returns true if cannibals outnumber missionaries. False otherwise.
     def cann_outnumber_miss(self, miss, cann):
-        # print("missionaries is: {}".format(miss))
-        # print("cannibals is: {}".format(cann))
         if cann > miss and miss != 0: return True
         if (3-cann) > (3-miss) and (3-miss) != 0: return True
 
@@ -70,6 +75,7 @@ class MissCannibals(Problem):
 
         if on_left : pos_or_neg = -1
 
+        "MC"
         """If we encounter an M in action, we subtract 1 from the current amount of
             M if the boat is to go right, and we add 1 if the boat is to go
             left. We do the same for Cs.
@@ -89,22 +95,27 @@ class MissCannibals(Problem):
         return state == self.goal
 
     def fancy_print(self, state):
-        temp = ""
-        state_list = list(state)
+        temp = "" #string to help us build our output
+        state_list = list(state) #converting state to list
+
+        #printing out missionaries and cannibals on the left
         print( temp.ljust(state_list[0], 'M') + " " + temp.ljust(state_list[1], 'C'), end="")
         
+        #printing out whether boat is on left
         if state_list[2]: print(" " + "(B)", end="")
 
+        #printing out the water
         print(" ~~~ ", end="")
-
+ 
+        #printing out the missionaries and cannibals on the right
         print( temp.ljust(3 - state_list[0], 'M') + " " + temp.ljust(3 - state_list[1], 'C'), end="")
 
+        #printing out whether the boat is on the right
         if not state_list[2]: print(" " + "(B)", end="")
 
+        #printing out newline (python automatically does that with print)
         print("")
         
-
-
 
 
 if __name__ == '__main__':
@@ -113,12 +124,9 @@ if __name__ == '__main__':
     misscann = MissCannibals(initial_state)
     path = depth_first_graph_search(misscann).solution()
 
-    print(path)
-    #print(initial_state)
     misscann.fancy_print(initial_state)
     for item in path:
         new_state = misscann.result(new_state, item)
-        #print(new_state)
         misscann.fancy_print(new_state)
 
 

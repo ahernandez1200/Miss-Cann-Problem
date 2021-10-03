@@ -1,0 +1,21 @@
+//Output for run of MissCannibals.py
+
+['MC', 'M', 'CC', 'C', 'MM', 'MC', 'MM', 'C', 'CC', 'C', 'CC']
+
+
+//Output for run of MissCannibals_fancyprint.py
+MMM CCC (B) ~~~  
+MM CC ~~~ M C (B)
+MMM CC (B) ~~~  C
+MMM  ~~~  CCC (B)
+MMM C (B) ~~~  CC
+M C ~~~ MM CC (B)
+MM CC (B) ~~~ M C
+ CC ~~~ MMM C (B)
+ CCC (B) ~~~ MMM
+ C ~~~ MMM CC (B)
+ CC (B) ~~~ MMM C
+  ~~~ MMM CCC (B)
+
+
+
